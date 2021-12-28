@@ -10,7 +10,7 @@ class CurriculaAdmin(admin.ModelAdmin):
     list_display =['name','teacher']
 
 class ClassroomAdmin(admin.ModelAdmin):
-    list_display =['roomNumber','roomAddress','roomLoad']
+    list_display =['room_number','room_address','room_load']
 
 class ClassroomOrderAdmin(admin.ModelAdmin):
     list_display =['classroom','usage_start_time','usage_end_time','usage_user','usage_curricula','status']

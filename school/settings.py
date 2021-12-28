@@ -24,8 +24,8 @@ SECRET_KEY = 'django-insecure-()_#8(goylpyib#7ju0x2vz=1p0*vc=!6upj*beoaq82x32*9m
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+APPEND_SLASH=False
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -131,9 +132,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SIMPLEUI_LOGO = 'https://img.qindebao.com/images/neekin/logo.jpg'
 
 REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS':'rest_framework.schemas.coreapi.AutoSchema',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
-    'DATETIME_FORMAT':'%y-%m-%d %H:%M:%S',
+    'DATETIME_FORMAT':'%Y-%m-%d %H:%M:%S',
     'DEFAULT_RENDER_CLASSES':[
         'rest_framework.renders.JSONRenderer',
         'rest_framework.renders.BrowsableAPIRenderer'
@@ -158,6 +160,7 @@ REST_FRAMEWORK = {
 import datetime
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+    'JWT_AUTO_HEADER_PREFIX': 'JWT'
 }
 
 
